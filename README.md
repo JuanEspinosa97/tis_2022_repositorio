@@ -11,3 +11,7 @@ Nuestro proyecto se basa en un hospital. Vamos a crear una base de datos para re
 
 ![Diagrama E-R](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Proyecto_Entidad_Relacion.png)
 
+- Diagrama Casos de Uso de la Base de Datos.
+
+![Diagrama UML](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Proyecto_Diagrama_de_usos.png)
+
