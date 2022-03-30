@@ -15,16 +15,20 @@ Nuestro proyecto se basa en un hospital. Vamos a crear una base de datos para re
 
 ![Diagrama UML](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Proyecto_Diagrama_de_usos.png)
 
-    Este diagrama UML está basado en un hospital privado en el que encontramos 3 actores principales que son: enfermera, paciente y doctor. 
+    Este diagrama UML está basado en un hospital privado en el que encontramos 3 actores principales que son:
+    enfermera, paciente y doctor. 
 
-    - Cada uno va a poder logearse sin problema en la aplicación específica del hospital lo que les va a permitir consultar el historial de sus pacientes. 
+    - Cada uno va a poder logearse sin problema en la aplicación específica del hospital lo que les va a 
+    permitir consultar el historial de sus pacientes. 
 
-    - El doctor va a ser el único que va a poder modificar dicho historial con el fin de proteger los datos del paciente. 
+    - El doctor va a ser el único que va a poder modificar dicho historial con el fin de proteger los datos
+    del paciente. 
 
-    - El paciente podrá pedir cita sin problema a través de la aplicación y, en caso de que ya lo hubiese hecho, darle la opción de modificar la fecha
-    asignada siempre y cuando esté disponible. Una vez finalizado el encuentro con el doctor llega el momento de pagar. Si es miembro de una aseguradora
-    privada, el hospital habla con dicha aseguradora para tramitar el cobro. En caso contrario, al paciente se le da la opción de pagar en efectivo o
-    tarjeta.
+    - El paciente podrá pedir cita sin problema a través de la aplicación y, en caso de que ya lo hubiese 
+    hecho, darle la opción de modificar la fecha asignada siempre y cuando esté disponible. Una vez 
+    finalizado el encuentro con el doctor llega el momento de pagar. Si es miembro de una asegurador 
+    privada, el hospital habla con dicha aseguradora para tramitar el cobro. En caso contrario, al
+    paciente se le da la opción de pagar en efectivo o tarjeta.
 
 
 - **Diagrama de la Interfaz del Proyecto**
