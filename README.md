@@ -21,7 +21,10 @@ Nuestro proyecto se basa en un hospital. Vamos a crear una base de datos para re
 
     - El doctor va a ser el único que va a poder modificar dicho historial con el fin de proteger los datos del paciente. 
 
-    - El paciente podrá pedir cita sin problema a través de la aplicación y, en caso de que ya lo hubiese hecho, darle la opción de modificar la fecha asignada siempre y cuando esté disponible. Una vez finalizado el encuentro con el doctor llega el momento de pagar. Si es miembro de una aseguradora privada, el hospital habla con dicha aseguradora para tramitar el cobro. En caso contrario, al paciente se le da la opción de pagar en efectivo o tarjeta.
+    - El paciente podrá pedir cita sin problema a través de la aplicación y, en caso de que ya lo hubiese hecho, darle la opción de modificar la fecha
+    asignada siempre y cuando esté disponible. Una vez finalizado el encuentro con el doctor llega el momento de pagar. Si es miembro de una aseguradora
+    privada, el hospital habla con dicha aseguradora para tramitar el cobro. En caso contrario, al paciente se le da la opción de pagar en efectivo o
+    tarjeta.
 
 
 - **Diagrama de la Interfaz del Proyecto**
