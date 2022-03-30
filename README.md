@@ -39,9 +39,9 @@ Nuestro proyecto se basa en un hospital. Vamos a crear una base de datos para re
 
 - **Las tablas de nuestra base de datos**
 
-![Tablas Proyecto](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/Tablas1.png)
+![Tablas Proyecto](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Tablas1.png)
 
-![](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/Tablas2.png)
+![](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Tablas2.png)
 
     -En la tabla Departamentos tenemos las columnas Id, Nombre y NumEmpleados. Tenemos un Id unico para cada departamento.
 
