@@ -18,13 +18,13 @@ Nuestro proyecto se basa en un hospital. Vamos a crear una base de datos para re
     Este diagrama UML está basado en un hospital privado en el que encontramos 3 actores principales que son:
     enfermera, paciente y doctor. 
 
-    - Cada uno va a poder logearse sin problema en la aplicación específica del hospital lo que les va a 
+    Cada uno va a poder logearse sin problema en la aplicación específica del hospital lo que les va a 
     permitir consultar el historial de sus pacientes. 
 
-    - El doctor va a ser el único que va a poder modificar dicho historial con el fin de proteger los datos
+    El doctor va a ser el único que va a poder modificar dicho historial con el fin de proteger los datos
     del paciente. 
 
-    - El paciente podrá pedir cita sin problema a través de la aplicación y, en caso de que ya lo hubiese 
+    El paciente podrá pedir cita sin problema a través de la aplicación y, en caso de que ya lo hubiese 
     hecho, darle la opción de modificar la fecha asignada siempre y cuando esté disponible. Una vez 
     finalizado el encuentro con el doctor llega el momento de pagar. Si es miembro de una asegurador 
     privada, el hospital habla con dicha aseguradora para tramitar el cobro. En caso contrario, al
@@ -43,15 +43,15 @@ Nuestro proyecto se basa en un hospital. Vamos a crear una base de datos para re
 
 ![](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Tablas2.png)
 
--En la tabla Departamentos tenemos las columnas Id, Nombre y NumEmpleados. Tenemos un Id unico para cada departamento.
+    En la tabla Departamentos tenemos las columnas Id, Nombre y NumEmpleados. Tenemos un Id unico para cada departamento.
 
-  -En la tabla Doctores tenemos las columnas Id, Nombre, NumColegiado, Edad, Sexo y IdDep. IdDep es una FOREIGN KEY wue referencia a la columna Id de la tabla departamentos. La columna Sexo solo puede rellenarase con los valores 'Hombre', 'Mujer' y puede ser NULL. 
+    En la tabla Doctores tenemos las columnas Id, Nombre, NumColegiado, Edad, Sexo y IdDep. IdDep es una FOREIGN KEY wue referencia a la columna Id de la tabla departamentos. La columna Sexo solo puede rellenarase con los valores 'Hombre', 'Mujer' y puede ser NULL. 
 
-    -La tabla Enfermeros tiene las columnas Id, Nombre y Edad. El Id es unico para cada elemento.
+    La tabla Enfermeros tiene las columnas Id, Nombre y Edad. El Id es unico para cada elemento.
 
-    -La tabla EnfermerosPacientes representa la relacion N-M que tienen estas dos entidades en el diagrama E-R. Consta de dos columnas IdEnfermero y IdPaciente ambas son PRIMARY KEY.
+    La tabla EnfermerosPacientes representa la relacion N-M que tienen estas dos entidades en el diagrama E-R. Consta de dos columnas IdEnfermero y IdPaciente ambas son PRIMARY KEY.
 
-    -Tabla Habitaciones, consta de las columnas Id, NumHabitacion y Estado. Estado solo puede rellenarse con los valores 'Libre' o 'Ocupado'. 
+    Tabla Habitaciones, consta de las columnas Id, NumHabitacion y Estado. Estado solo puede rellenarse con los valores 'Libre' o 'Ocupado'. 
 
-    -La tabla Pacientes tiene las columnas Id, Nombre, Edad, MotivoIngreso, IdDoctor, IdHabitacion, FechaIngreso y Sexo. IdDoctor y IdHabitacion son FOREIGN KEY que referencian al id de las tablas Doctores y Habitaciones respectivamente.La columna Sexo solo puede rellenarase con los valores 'Hombre', 'Mujer' y puede ser NULL.
+    La tabla Pacientes tiene las columnas Id, Nombre, Edad, MotivoIngreso, IdDoctor, IdHabitacion, FechaIngreso y Sexo. IdDoctor y IdHabitacion son FOREIGN KEY que referencian al id de las tablas Doctores y Habitaciones respectivamente.La columna Sexo solo puede rellenarase con los valores 'Hombre', 'Mujer' y puede ser NULL.
 
