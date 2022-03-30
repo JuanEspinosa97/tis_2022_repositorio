@@ -15,6 +15,12 @@ Nuestro proyecto se basa en un hospital. Vamos a crear una base de datos para re
 
 ![Diagrama UML](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Proyecto_Diagrama_de_usos.png)
 
+-Diagrama de la Interfaz del Proyecto:
+
+![Diagrama Interfaz](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Interfaz_Proyecto.png)
+
+En este diagrama representamos como es el flujo de la interfaz de nuestro proyecto. Empezando por una identificacion para diferenciar entre Pacientes, Doctores y Enfermeros. Luego procedemos a un menu personalizado para cada uno de ellos con las diferentes opciones que tienen.
+
 - Las tablas de nuestra base de datos son:
 
 ![Tablas Proyecto](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/Tablas1.png)
