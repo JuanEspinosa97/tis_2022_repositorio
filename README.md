@@ -19,4 +19,6 @@ Nuestro proyecto se basa en un hospital. Vamos a crear una base de datos para re
 
 ![Tablas Proyecto](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/Tablas1.png)
 
+![](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/Tablas2.png)
+
 
