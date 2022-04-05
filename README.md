@@ -12,15 +12,21 @@ doctores, enfermeros y habitaciones. Esto nos permitira llevar un correcto funci
 
 ![Diagrama E-R](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Proyecto_Entidad_Relacion.png)
 
-    Aquí mostramos nuestras entidades que son Doctor, Departamento, Enfermero, Paciente y Habitación (representados entre rectángulos) y las relaciones que los unen (representadas entre rombos). Además tenemos representados mediante óvalos los atributos de cada entidad.
+    Aquí mostramos nuestras entidades que son Doctor, Departamento, Enfermero, Paciente y Habitación 
+    (representados entre rectángulos) y las relaciones que los unen (representadas entre rombos). 
+    Además tenemos representados mediante óvalos los atributos de cada entidad.
 
-    En el caso de los doctores tendrán un identificador, un nombre, un número de colegiado y se tendrán registrados su edad y sexo. Los doctores trabajan en un departamento en específico de ahí que nuestra relación sea N-1.
+    En el caso de los doctores tendrán un identificador, un nombre, un número de colegiado y se tendrán 
+    registrados su edad y sexo. Los doctores trabajan en un departamento en específico de ahí que nuestra relación sea N-1.
 
-    Un único doctor tendrá a su cargo a varios pacientes. De ellos recogeremos información como sus nombres, sus edades, el sexo, la fecha de ingreso y el motivo por el cual han ingresado.
+    Un único doctor tendrá a su cargo a varios pacientes. De ellos recogeremos información 
+    como sus nombres, sus edades, el sexo, la fecha de ingreso y el motivo por el cual han ingresado.
 
-    A su vez, estos pacientes serán cuidados por varias enfermeras y dichas enfermeras tendrán a su cargo varios pacientes por lo que hemos decidido que la relación sea N-M.
+    A su vez, estos pacientes serán cuidados por varias enfermeras y dichas enfermeras tendrán a su cargo 
+    varios pacientes por lo que hemos decidido que la relación sea N-M.
 
-    Por último, los pacientes dispondrán únicamente de una habitación en donde serán atendidos con la atención personalizada que deseaban al contratar un seguro privado.
+    Por último, los pacientes dispondrán únicamente de una habitación en donde serán atendidos con la 
+    atención personalizada que deseaban al contratar un seguro privado.
 
 
 - **Diagrama Casos de Uso de la Base de Datos**
