@@ -17,7 +17,8 @@ doctores, enfermeros y habitaciones. Esto nos permitira llevar un correcto funci
     Además tenemos representados mediante óvalos los atributos de cada entidad.
 
     En el caso de los doctores tendrán un identificador, un nombre, un número de colegiado y se tendrán 
-    registrados su edad y sexo. Los doctores trabajan en un departamento en específico de ahí que nuestra relación sea N-1.
+    registrados su edad y sexo. Los doctores trabajan en un departamento en específico de ahí que nuestra 
+    relación sea N-1.
 
     Un único doctor tendrá a su cargo a varios pacientes. De ellos recogeremos información 
     como sus nombres, sus edades, el sexo, la fecha de ingreso y el motivo por el cual han ingresado.
