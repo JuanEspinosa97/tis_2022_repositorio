@@ -84,8 +84,8 @@ doctores, enfermeros y habitaciones. Esto nos permitira llevar un correcto funci
         La tabla EnfermerosPacientes representa la relacion N-M que tienen estas dos entidades en el 
         diagrama E-R. Consta de dos columnas IdEnfermero y IdPaciente ambas son PRIMARY KEY.
 
-        Tabla Habitaciones, consta de las columnas Id, NumHabitacion y Estado. Estado solo puede 
-        rellenarse con los valores 'Libre' o 'Ocupado'. 
+        Tabla Habitaciones, consta de las columnas Id, NumHabitacion y Estado. Estado 
+        de tipo boolean solo puede rellenarse con los valores 0 ('Libre') o 1 ('Ocupado'). 
 
         La tabla Pacientes tiene las columnas Id, Nombre, Edad, MotivoIngreso, IdDoctor, IdHabitacion, 
         FechaIngreso y Sexo. IdDoctor y IdHabitacion son FOREIGN KEY que referencian al id de las tablas 
