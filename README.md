@@ -10,7 +10,7 @@ doctores, enfermeros y habitaciones. Esto nos permitira llevar un correcto funci
 
 - **Diagrama Entidad-Relacion de la Base de Datos**
 
-![Diagrama E-R](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Proyecto_Entidad_Relacion.png)
+    ![Diagrama E-R](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Proyecto_Entidad_Relacion.png?raw=true)
 
     Aquí mostramos nuestras entidades que son Doctor, Departamento, Enfermero, Paciente y Habitación 
     (representados entre rectángulos) y las relaciones que los unen (representadas entre rombos). 
@@ -32,7 +32,7 @@ doctores, enfermeros y habitaciones. Esto nos permitira llevar un correcto funci
 
 - **Diagrama Casos de Uso de la Base de Datos**
 
-![Diagrama UML](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Proyecto_Diagrama_de_usos.png)
+    ![Diagrama UML](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Proyecto_Diagrama_de_usos.png?raw=true)
 
     Este diagrama UML está basado en un hospital privado en el que encontramos 3 actores principales que son:
     enfermera, paciente y doctor. 
@@ -52,7 +52,7 @@ doctores, enfermeros y habitaciones. Esto nos permitira llevar un correcto funci
 
 - **Diagrama de la Interfaz del Proyecto**
 
-![Diagrama Interfaz](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Interfaz_Proyecto.png)
+    ![Diagrama Interfaz](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Interfaz_Proyecto.png?raw=true)
 
     En este diagrama representamos como es el flujo de la interfaz de nuestro proyecto. Empezando 
     por una identificacion para diferenciar entre Pacientes, Doctores y Enfermeros. Luego procedemos 
@@ -60,9 +60,17 @@ doctores, enfermeros y habitaciones. Esto nos permitira llevar un correcto funci
 
 - **Las tablas de nuestra base de datos**
 
-![Tablas Proyecto](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Tablas1.png)
+   ![Tablas Proyecto](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/TablaDepartamentos.png?raw=true)
 
-![](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/Tablas2.png)
+   ![](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/TablaDoctores.png?raw=true)
+
+   ![](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/TablaEnfermeros.png?raw=true)
+
+   ![](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/TablaEnfermerosPacientes.png?raw=true)
+
+   ![](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/TablaHabitaciones.png?raw=true)
+
+   ![](https://github.com/JuanEspinosa97/tis_2022_repositorio/blob/main/doc/TablaPacientes.png?raw=true)
 
     En la tabla Departamentos tenemos las columnas Id, Nombre y NumEmpleados. Tenemos un Id unico 
     para cada departamento.
