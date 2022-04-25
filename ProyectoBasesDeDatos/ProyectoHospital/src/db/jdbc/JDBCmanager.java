@@ -34,9 +34,9 @@ public class JDBCmanager implements DBmanager{
 		}
 	}
 	private void inicializarTablas() {
-		if(countElementsFromTable("Doctores")==0) {
-			addDoctor();
-		}
+	//	if(countElementsFromTable("Doctores")==0) {
+		//	addDoctor();
+		//}
 		// TODO Auto-generated method stub
 		
 	}
