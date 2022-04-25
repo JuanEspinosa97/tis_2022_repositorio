@@ -21,10 +21,6 @@ public class Pacientes{
 		this.setHabitacion(habitacion);
 	}
 	
-	public Pacientes() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public int getId() {
 		return id;
 	}
