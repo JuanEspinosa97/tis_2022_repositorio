@@ -11,6 +11,11 @@ public class Departamentos {
 	}
 	
 	
+	public Departamentos() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getNumEmpleados() {
 		return numEmpleados;
 	}

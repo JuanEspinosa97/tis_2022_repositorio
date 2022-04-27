@@ -10,6 +10,10 @@ public class Habitaciones {
 		this.estado=estado;
 	}
 	
+	public Habitaciones() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}

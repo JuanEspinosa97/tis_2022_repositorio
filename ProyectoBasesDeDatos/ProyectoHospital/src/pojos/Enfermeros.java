@@ -11,6 +11,10 @@ public class Enfermeros {
 		this.edad=edad;
 	}
 	
+	public Enfermeros() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}
