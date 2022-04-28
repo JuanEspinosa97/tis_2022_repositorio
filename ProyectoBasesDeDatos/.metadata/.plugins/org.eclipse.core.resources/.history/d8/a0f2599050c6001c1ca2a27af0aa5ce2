@@ -27,7 +27,6 @@ public class GenerarAleatorio {
     public static Pacientes generarPacienteAleatorio() {
     	Pacientes paciente = new Pacientes();
     	paciente.setNombre(randomStringFromArray(NOMBRES));
-    	paciente.setEdad(randomInt(99));
     	paciente.setSexo(getRandomBoolean());
     	paciente.setFechaIngreso(getRandomDate());
         paciente.setMotivoIngreso(randomStringFromArray(MOTIVOS));

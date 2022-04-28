@@ -29,7 +29,6 @@ public class JDBCmanager implements DBmanager{
 	private static final String ficheroInicializacion = "./BaseDatos/ProyectoHospital.sql";
 	private static final String sqlCountElementsFromTable = "SELECT COUNT(*) AS Count FROM ";
 	private static final String sqlAddDoctor = "INSERT INTO Doctores(Nombre,NumColegiado,Edad,Sexo,IdDep) VALUES(?,?,?,?,?);";
-	private static final String sqlAddPaciente = "INSERT INTO Pacientes(Nombre,Edad,Sexo,MotivoIngreso,FechaIngreso,IdDoctor,IdHabitacion VALUES (?,?,?,?,?,?,?);";
 
 	@Override
 	public void connect() {
@@ -62,11 +61,10 @@ public class JDBCmanager implements DBmanager{
 	private void addPaciente(Pacientes paciente) {
 		try (PreparedStatement prep = c.prepareStatement(sqlAddPaciente)){
 			prep.setString(1,paciente.getNombre());
-			prep.setInt(2,paciente.getEdad());
-			prep.setBoolean(3, paciente.isSexo());
-			prep.setString(4, paciente.getMotivoIngreso());
-			prep.setDate(5, paciente.getFechaIngreso());
-		//Faltaria incluir doctores y habitacion.
+			prep.setInt(2,paciente.ge);
+			prep.setInt(3, doctor.getEdad());
+			prep.setBoolean(4, doctor.isSexo());
+		//Faltaria incluir departamentos.
 		}catch (SQLException e) {
 			LOGGER.warning("Error al añadir doctor\n"+ e.toString());
 		}		

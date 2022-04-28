@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;pojos.Pacientes.edad&apos; in &apos;pojos.Pacientes&apos;&#x0D;&#x0A;- Original project: &apos;ProyectoHospital&apos;&#x0D;&#x0A;- Original element: &apos;pojos.Pacientes.edad&apos;&#x0D;&#x0A;- Getter method name: &apos;getEdad&apos;&#x0D;&#x0A;- Setter method name: &apos;setEdad&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;edad&apos;" flags="589830" getter="getEdad" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;pojos{Pacientes.java[Pacientes^edad" insertion="15" setter="setEdad" stamp="1651080892577" version="1.0" visibility="1"/>
+</session>
