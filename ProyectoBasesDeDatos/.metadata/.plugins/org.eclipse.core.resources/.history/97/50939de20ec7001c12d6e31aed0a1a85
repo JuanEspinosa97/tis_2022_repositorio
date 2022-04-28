@@ -20,27 +20,10 @@ public class Menu{
 		int respuesta=-1;
 		do {
 			respuesta=mostrarOpciones(Identificacion);
-			switch(respuesta) {
-				case( 1) -> mostrarMenuDoctor();
-				case 2 -> mostarMenuEnfermero();
-				case 3
-			}
 		}
 		while (respuesta!=0);
 		dbman.disconnect();
 		
-	}
-
-
-	private static Object mostarMenuEnfermero() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	private static Object mostrarMenuDoctor() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 
