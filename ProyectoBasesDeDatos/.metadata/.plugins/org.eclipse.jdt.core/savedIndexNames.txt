@@ -1,23 +1,3 @@
-INDEX VERSION 1.131+C:\Users\mº graciela\Documents\CEU\BaseDeDatos\Repositorio\tis_2022_repositorio\ProyectoBasesDeDatos\.metadata\.plugins\org.eclipse.jdt.core
-2538428657.index
-3356355330.index
-2211140569.index
-432452911.index
-1966532802.index
-3243141061.index
-4111900654.index
-513392136.index
-1724777018.index
-2678077487.index
-2826680313.index
-837115126.index
-2960766551.index
-4224132738.index
-2613800718.index
+INDEX VERSION 1.131+C:\AASIGNATURAS_PRIMAVERA_2022\TRATAMIENTO DE LA INFORMACION EN SISTEMAS DISTRIBUIDOS\LABORATORIO\2022\ProyectoBasesDeDatos\.metadata\.plugins\org.eclipse.jdt.core
 1277328989.index
-617852079.index
-248348808.index
-3298297436.index
-1220226696.index
-1924658209.index
-1871998204.index
+1865797976.index
