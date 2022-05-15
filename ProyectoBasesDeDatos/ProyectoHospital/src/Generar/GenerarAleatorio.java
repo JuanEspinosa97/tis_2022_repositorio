@@ -1,5 +1,6 @@
 package Generar;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Random;
 
 import pojos.Departamentos;
@@ -14,7 +15,9 @@ public class GenerarAleatorio {
 			"Isabel","Pilar","Sonia","Monica"};
 	private static final String[] MOTIVOS={"Dolor Abdominal","Pierna rota", "Esguince", "Brazo roto", "Problemas estomacales", "Dolor de cabeza","Fiebre",
 			"Covid-19","Problema respiratorio","Golpe en la cabeza", "Desmayo","Problema Cardiaco"};
-	private static final String[] NOMBRESDEPAR= {"Traumatologia","Oncologia","Neurologia","Cirugia","Ginecologia","Urgencias","Cardiologia"};
+	private static final String[] NOMBRESDEPAR= {"Traumatologia","Oncologia","Neurologia","Cirugia","Ginecologia","Urgencias","Cardiologia","Pediatria","Hematologia","Maternidad"};
+	private static final int NumDepartamentos = 10;
+	private static final int NumHabitaciones = 100;
     
 	public static Doctores  generarDoctorAleatorio() {
     	Doctores doctor = new Doctores();
@@ -22,6 +25,9 @@ public class GenerarAleatorio {
     	doctor.setEdad(25+randomInt(40));
     	doctor.setNumColegiado(282800000+randomInt(99999));
     	doctor.setSexo(getRandomBoolean());
+    	Departamentos depar = new Departamentos();
+    	depar.setId(randomInt(NumDepartamentos));
+    	doctor.setDepartamento(depar);
     	return doctor;
     }
     public static Pacientes generarPacienteAleatorio() {
@@ -31,12 +37,20 @@ public class GenerarAleatorio {
     	paciente.setSexo(getRandomBoolean());
     	paciente.setFechaIngreso(getRandomDate());
         paciente.setMotivoIngreso(randomStringFromArray(MOTIVOS));
+        Doctores d = new Doctores();
+        Habitaciones h = new Habitaciones();
+        d.setId(randomInt(99));
+        h.setId(randomInt(NumHabitaciones));
+        paciente.setDoctor(d);
+        paciente.setHabitacion(h);
 		return paciente;    	
     }
-    public static Departamentos generarDepAleatorio() {
+    public static Departamentos generarDepAleatorio(int i) {
+
     	Departamentos departamento = new Departamentos();
-    	departamento.setNombre(randomStringFromArray(NOMBRESDEPAR));
+    	departamento.setNombre(NOMBRESDEPAR[i]);
     	departamento.setNumEmpleados(randomInt(100));
+
 		return departamento;
     }
     public static Enfermeros generarEnfermeroAleatorio() {
@@ -45,20 +59,18 @@ public class GenerarAleatorio {
     	enfermero.setEdad(20+randomInt(45));
 		return enfermero;
     }
-    public static Habitaciones generarHabitacionAleatorio() {
+    public static Habitaciones generarHabitacionAleatorio(int i) {
     	Habitaciones habitacion = new Habitaciones();
-    	habitacion.setNumHabitaciones(100+randomInt(99));
+    	habitacion.setNumHabitaciones(100+i);
     	habitacion.setEstado(getRandomBoolean());
 		return habitacion;
     	
     }
 
 	private static Date getRandomDate() {
-        Date date = new Date(0);
-        long timeInMilliSeconds = date.getTime();
-        java.sql.Date date1 = new java.sql.Date(timeInMilliSeconds);
-		return date1;
-	}
+		Date fecha = Date.valueOf(LocalDate.now());
+		return fecha;
+		}
 	public static boolean getRandomBoolean() {
         Random random = new Random();
         return random.nextBoolean();
@@ -71,7 +83,6 @@ public class GenerarAleatorio {
 	private static int randomInt(int max) {
 		return (int) (Math.random() * max);
 	}
-//numero colegiado
-//numero habitacion
+
 
 }

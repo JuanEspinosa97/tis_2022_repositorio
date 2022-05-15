@@ -19,6 +19,15 @@ public class Doctores{
 	public Doctores() {
 		
 	}
+	public Doctores(int id, String nombre, int numColegiado, int edad, boolean sexo, Departamentos departamento) {
+		super();
+		this.id=id;
+		this.nombre=nombre;
+		this.numColegiado=numColegiado;
+		this.edad=edad;
+		this.sexo=sexo;
+		this.departamento=departamento;
+	}
 	public int getId() {
 		return id;
 	}
@@ -56,6 +65,11 @@ public class Doctores{
 
 	public void setDepartamento(Departamentos departamento) {
 		this.departamento = departamento;
+	}
+	@Override
+	public String toString() {
+		return "Doctores [id=" + id + ", nombre=" + nombre + ", numColegiado=" + numColegiado + ", edad=" + edad
+				+ ", sexo=" + sexo + ", departamento=" + departamento.getId() + "]";
 	}
 	
 }

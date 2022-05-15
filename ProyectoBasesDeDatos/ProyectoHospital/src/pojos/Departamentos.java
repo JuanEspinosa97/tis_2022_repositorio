@@ -34,4 +34,10 @@ public class Departamentos {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Departamentos [id=" + id + ", nombre=" + nombre + ", numEmpleados=" + numEmpleados + "]";
+	}
 }

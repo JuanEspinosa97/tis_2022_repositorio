@@ -32,6 +32,11 @@ public class Habitaciones {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
+
+	@Override
+	public String toString() {
+		return "Habitaciones [id=" + id + ", numHabitaciones=" + numHabitaciones + ", estado=" + estado + "]";
+	}
 	
 
 }

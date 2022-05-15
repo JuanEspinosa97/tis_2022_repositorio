@@ -15,6 +15,12 @@ public class Enfermeros {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Enfermeros(int id, String nombre, int edad) {
+		this.id=id;
+		this.nombre=nombre;
+		this.edad=edad;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -32,6 +38,11 @@ public class Enfermeros {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	@Override
+	public String toString() {
+		return "Enfermeros [id=" + id + ", nombre=" + nombre + ", edad=" + edad + "]";
 	}
 	
 }
