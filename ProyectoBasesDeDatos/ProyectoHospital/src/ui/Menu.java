@@ -1,17 +1,25 @@
 package ui;
 
 import db.interfaces.DBmanager;
+import db.interfaces.UsuariosManager;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 
 import db.jdbc.JDBCmanager;
+import jpa.JPAUsuariosManager;
+import logging.MyLogger;
 import pojos.Departamentos;
 import pojos.Doctores;
 import pojos.Enfermeros;
 import pojos.Habitaciones;
 import pojos.Pacientes;
+import pojos.Rol;
+import pojos.Usuario;
 
 import java.io.InputStreamReader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -21,41 +29,144 @@ import java.util.logging.Logger;
 import Generar.GenerarAleatorio;
 
 public class Menu{
+	final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private static DBmanager dbman = new JDBCmanager();
+	private static UsuariosManager userman = new JPAUsuariosManager();
+	
+	private static final String[] MENU_INICIO = {"Salir del programa", "Registrarse", "Login"};
+	
 	private static final String[] Identificacion = {"Salir", "Jefe", "Doctor", "Enfermero", "Paciente"};
 	private static final String []MENUDOCTOR= {"Salir","Ver Historial Pacientes","Modificar Historial","Ver Citas"};
 //	private static final String []MENUENFERMERO= {};
 	//private static final String []MENUPACIENTE= {};
 	private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+private static Usuario usuario;	
 	private static final String[] MENUJEFE = {"Salir", "Introducir un elemento","Introducir Muchos elemento","Modificar Informacion","Borrar elementos"};
 	private static final String[] ELEMENTO = {"Salir","Doctor","Enfermero","Paciente"};
 	private static final DateTimeFormatter formatterFecha =  DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 	
 	public static void main(String[] args) {
+		
+		try {
+			
+			MyLogger.setup();
+			
+		}catch(IOException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
 		dbman.connect();
-		System.out.println("Bienvenido al men� de nuestro hospital");
+		userman.connect();
+		System.out.println("Bienvenido al menu de nuestro hospital");
 		int respuesta=-1;
 		do {
-			respuesta=mostrarOpciones(Identificacion);
-			switch(respuesta) {
-			 	case 1 :{mostrarMenuJefe();
-			 			break;
-			 			}
-				case 2: { mostrarMenuDoctor();
-						break;
-						}
-				case 3: { mostarMenuEnfermero();
-						break;
-						}
-				case 4: {mostrarMenuPaciente();
-						break;
-						}
+			respuesta=mostrarOpciones(MENU_INICIO);
+			LOGGER.fine("El usuario ha seleccionado la opcion " + respuesta + " en el menu principal");
+			switch (respuesta) {
+			case 1:
+				
+				registrarse();
+				
+			break;
+
+			case 2:
+
+				login();
+				
+			break;
+
+			case 3:
+
+			break;
 			}
 		}
 		while (respuesta!=0);
+		System.out.println("�Gracias!\nAdios!");
+		userman.disconnect();
 		dbman.disconnect();
 		
+	}
+	
+	private static void login() {
+		try {
+			System.out.println("Indique su email:");
+			String email = reader.readLine();
+			System.out.println("Indique su contrase�a:");
+			String pass = reader.readLine();
+			usuario = userman.checkLogin(email, pass);
+			if (usuario == null) {
+				System.out.println("Email o contrase�a incorrectos");
+			} else {
+				switch(usuario.getRol().getNombre()) {
+					case "enfermero": 
+						
+						mostrarMenuEnfermero();
+						
+					break;
+					
+					case "paciente": 
+						
+						mostrarMenuPaciente();
+						
+					break;
+					
+					case "doctor": 
+						
+						mostrarMenuDoctor();
+						
+					break;
+					
+				}
+			}
+		} catch(IOException e) {
+			LOGGER.warning("Error en el registro\n" + e);
+		}
+	}
+	
+	private static void registrarse() {
+		try {
+			System.out.println("Indique su email:");
+			String email = reader.readLine();
+			System.out.println("Indique su contrase�a:");
+			String pass = reader.readLine();
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(pass.getBytes());
+			byte[] hash = md.digest();
+			System.out.println("Indique su nombre:");
+			String nombre = reader.readLine();
+			System.out.println("Indique su edad:");
+			int edad = Integer.parseInt(reader.readLine());
+			System.out.println(userman.getRoles());
+			System.out.println("Indique el id del rol:");
+			int rolId = Integer.parseInt(reader.readLine());
+			//TODO Asegurarse que el id es v�lido
+			Rol rol = userman.getRolById(rolId);
+			Usuario usuario = new Usuario(email, hash, rol);
+			rol.addUsuario(usuario);
+			userman.addUsuario(usuario);
+			
+			if(rol.getNombre().equals("enfermero")) {
+				
+				Enfermeros enfermero = new Enfermeros(usuario.getId(), nombre, edad, rol.getNombre());
+				dbman.addEnfermero(enfermero);
+				
+			}else if(rol.getNombre().equals("paciente")){
+				
+				Pacientes paciente = new Pacientes(usuario.getId(), nombre, edad , true, null, null, null, null);
+				dbman.addPaciente(paciente);
+				
+			}else {
+				
+				Doctores doctor = new Doctores(usuario.getId(), nombre, 0, edad, true, null , rol.getNombre());
+				dbman.addDoctor(doctor);
+				
+			}
+			
+		} catch(IOException | NoSuchAlgorithmException  e) {
+			LOGGER.warning("Error en el registro\n" + e);
+		}
 	}
 
 
@@ -65,9 +176,9 @@ public class Menu{
 		do {
 			respuesta=mostrarOpciones(MENUJEFE);
 			switch(respuesta) {
-			case 1:{añadirTrabajador();
+			case 1:{aniadirTrabajador();
 					break;}
-			case 2:{añadirMuchosTrabajadores();
+			case 2:{aniadirMuchosTrabajadores();
 					break;}
 			case 3:{ModificarInformacion();
 					break;}
@@ -111,9 +222,9 @@ public class Menu{
 			int id = Integer.parseInt(reader.readLine());
 			boolean exito = dbman.deletePaciente(id);
 			if (exito) {
-				System.out.println("Enfermero borrado con éxito");
+				System.out.println("Enfermero borrado con exito");
 			} else {
-				System.out.println("No hay ningún enfermero con id " + id);
+				System.out.println("No hay ningun enfermero con id " + id);
 			}
 			}
 			 catch (IOException e) {
@@ -127,16 +238,16 @@ public class Menu{
 			System.out.println("Indique el nombre del enfermero que quiere eliminar:");
 			String busq;
 			busq = reader.readLine();
-			ArrayList<Enfermeros> enf =dbman.buscarEnfermeroNombre(busq);//SQL inyeccion???¿DONDE?
+			ArrayList<Enfermeros> enf =dbman.buscarEnfermeroNombre(busq);//SQL inyeccion???�DONDE?
 			mostrarArrayList(enf);
 
 			System.out.println("Seleccione el id del enfermero deseado:\nSi no desea borrar introduzca 0.");
 			int id = Integer.parseInt(reader.readLine());
 			boolean exito = dbman.deleteEnfermero(id);
 			if (exito) {
-				System.out.println("Enfermero borrado con éxito");
+				System.out.println("Enfermero borrado con exito");
 			} else {
-				System.out.println("No hay ningún enfermero con id " + id);
+				System.out.println("No hay ningun enfermero con id " + id);
 			}
 			}
 			 catch (IOException e) {
@@ -150,16 +261,16 @@ public class Menu{
 		System.out.println("Indique el nombre del doctor que quiere eliminar:");
 		String busq;
 		busq = reader.readLine();
-		ArrayList<Doctores> doctor =dbman.buscarDoctorNombre(busq);//SQL inyeccion???¿DONDE?
+		ArrayList<Doctores> doctor =dbman.buscarDoctorNombre(busq);//SQL inyeccion???�DONDE?
 		mostrarArrayList(doctor);
 
 		System.out.println("Seleccione el id del doctor deseado:\nSi no desea borrar introduzca 0.");
 		int id = Integer.parseInt(reader.readLine());
 		boolean exito = dbman.deleteDoctor(id);
 		if (exito) {
-			System.out.println("Doctor borrado con éxito");
+			System.out.println("Doctor borrado con exito");
 		} else {
-			System.out.println("No hay ningún doctor con id " + id);
+			System.out.println("No hay ningun doctor con id " + id);
 		}
 		}
 		 catch (IOException e) {
@@ -190,7 +301,7 @@ public class Menu{
 		System.out.println("Indique el nombre del paciente del que quiere modificar datos:\nSi quiere verlos todos pulse ENTER.");
 		try {
 			String busq=reader.readLine();
-			ArrayList<Pacientes> paciente = dbman.buscarPacienteNombre(busq);//SQL inyeccion???¿DONDE?
+			ArrayList<Pacientes> paciente = dbman.buscarPacienteNombre(busq);//SQL inyeccion???�DONDE?
 			mostrarArrayList(paciente);
 			boolean exito=false;
 			
@@ -226,9 +337,9 @@ public class Menu{
 			}
 			
 			if (exito) {
-				System.out.println("Paciente modificado con éxito");
+				System.out.println("Paciente modificado con exito");
 			} else {
-				System.out.println("No hay ningún doctor con id " + id);
+				System.out.println("No hay ningun doctor con id " + id);
 			}
 		}catch (IOException e) {
 			e.printStackTrace();
@@ -240,7 +351,7 @@ public class Menu{
 		System.out.println("Indique el nombre del enfermero del que quiere modificar datos:\nSi quiere verlos todos pulse ENTER.");
 		try {
 			String busq=reader.readLine();
-			ArrayList<Enfermeros> enfermero =dbman.buscarEnfermeroNombre(busq);//SQL inyeccion???¿DONDE?
+			ArrayList<Enfermeros> enfermero =dbman.buscarEnfermeroNombre(busq);//SQL inyeccion???�DONDE?
 			mostrarArrayList(enfermero);
 			boolean exito=false;
 			System.out.println("Seleccione el id del enfermero/a deseado:\nSi no desea modificar introduzca 0.");
@@ -255,9 +366,9 @@ public class Menu{
 			Enfermeros e = new Enfermeros(id,nombre,edad);
 			exito = dbman.updateEnfermero(e);}
 			if (exito) {
-				System.out.println("Enfermero modificado con éxito");
+				System.out.println("Enfermero modificado con exito");
 			} else {
-				System.out.println("No hay ningún doctor con id " + id);
+				System.out.println("No hay ningun doctor con id " + id);
 			}			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -270,7 +381,7 @@ public class Menu{
 		System.out.println("Indique el nombre del doctor del que quiere modificar datos:\nSi quiere verlos todos pulse ENTER.");
 		try {
 			String busq=reader.readLine();
-			ArrayList<Doctores> doctor =dbman.buscarDoctorNombre(busq);//SQL inyeccion???¿DONDE?
+			ArrayList<Doctores> doctor =dbman.buscarDoctorNombre(busq);//SQL inyeccion???�DONDE?
 			mostrarArrayList(doctor);
 			boolean exito=false;
 			System.out.println("Seleccione el id del doctor deseado:\nSi no desea modificar introduzca 0.");
@@ -293,9 +404,9 @@ public class Menu{
 			exito = dbman.updateDoctor(d);}
 			
 			if (exito) {
-				System.out.println("Doctor modificado con éxito");
+				System.out.println("Doctor modificado con exito");
 			} else {
-				System.out.println("No hay ningún doctor con id " + id);
+				System.out.println("No hay ningun doctor con id " + id);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -310,25 +421,25 @@ public class Menu{
 			System.out.println(object);
 		}
 	}
-	private static void añadirMuchosTrabajadores() {
+	private static void aniadirMuchosTrabajadores() {
 		try {
 			int respuesta=-1;
 			do {
 			int numero=0;
-			System.out.println("Que tipo de elemento desea añadir:");
+			System.out.println("Que tipo de elemento desea aniadir:");
 				respuesta=mostrarOpciones(ELEMENTO);
 				switch(respuesta) {
-				case 1:{System.out.println("Indique el numero de elementos que quiere añadir:");
+				case 1:{System.out.println("Indique el numero de elementos que quiere aniadir:");
 					numero=Integer.parseInt(reader.readLine());
-					añadirMultipleDoctorDb(numero);
+					aniadirMultipleDoctorDb(numero);
 					break;}
-				case 2:{System.out.println("Indique el numero de elementos que quiere añadir:");
+				case 2:{System.out.println("Indique el numero de elementos que quiere aniadir:");
 					numero=Integer.parseInt(reader.readLine());
-					añadirMultipleEnfermeroDb(numero);
+					aniadirMultipleEnfermeroDb(numero);
 					break;}
-				case 3:{System.out.println("Indique el numero de elementos que quiere añadir:");
+				case 3:{System.out.println("Indique el numero de elementos que quiere aniadir:");
 					numero=Integer.parseInt(reader.readLine());
-					añadirMultiplePacienteDb(numero);
+					aniadirMultiplePacienteDb(numero);
 					break;}
 				}
 			}while(respuesta!=0);
@@ -340,14 +451,14 @@ public class Menu{
 	}
 
 
-	private static void añadirMultiplePacienteDb(int numero) {
+	private static void aniadirMultiplePacienteDb(int numero) {
 		for (int i=0;i<numero;i++) {
 			dbman.addPaciente(GenerarAleatorio.generarPacienteAleatorio());
 		}
 	}
 
 
-	private static void añadirMultipleEnfermeroDb(int numero) {
+	private static void aniadirMultipleEnfermeroDb(int numero) {
 		for (int i=0;i<numero;i++) {
 			dbman.addEnfermero(GenerarAleatorio.generarEnfermeroAleatorio());
 		}
@@ -355,7 +466,7 @@ public class Menu{
 	}
 
 
-	private static void añadirMultipleDoctorDb(int numero) {
+	private static void aniadirMultipleDoctorDb(int numero) {
 		for (int i =0;i<numero;i++) {
 			dbman.addDoctor(GenerarAleatorio.generarDoctorAleatorio());
 		}
@@ -363,17 +474,17 @@ public class Menu{
 	}
 
 
-	private static void añadirTrabajador() {
-		System.out.println("Que tipo de elemento desea añadir:");
+	private static void aniadirTrabajador() {
+		System.out.println("Que tipo de elemento desea aniadir:");
 		int respuesta=-1;
 		do {
 			respuesta=mostrarOpciones(ELEMENTO);
 			switch(respuesta) {
-			case 1:{añadirDoctorDb();
+			case 1:{aniadirDoctorDb();
 					break;}
-			case 2:{añadirEnfermeroDb();
+			case 2:{aniadirEnfermeroDb();
 					break;}
-			case 3:{añadirPacienteDb();
+			case 3:{aniadirPacienteDb();
 					break;}
 			}
 		}while(respuesta!=0);
@@ -387,7 +498,7 @@ public class Menu{
 	}
 
 
-	private static void mostarMenuEnfermero() {
+	private static void mostrarMenuEnfermero() {
 		// TODO Auto-generated method stub
 	}
 
@@ -403,7 +514,7 @@ public class Menu{
 
 
 	private static void primeraConexion(String ROL) {
-		System.out.println("¿Es la primera vez que se conecta? S/N");
+		System.out.println("�Es la primera vez que se conecta? S/N");
 		String confirmacion ="";
 		do{
 			try {
@@ -415,15 +526,15 @@ public class Menu{
 			confirmacion=confirmacion.trim();
 		}while(confirmacion!="S"||confirmacion!="N");
 		if ("S".equals(confirmacion)) {
-			if ("Doctor".equals(ROL)) {añadirDoctorDb();}
-			else if ("Enfermero".equals(ROL)) {añadirEnfermeroDb();}
-			else añadirPacienteDb();
+			if ("Doctor".equals(ROL)) {aniadirDoctorDb();}
+			else if ("Enfermero".equals(ROL)) {aniadirEnfermeroDb();}
+			else aniadirPacienteDb();
 		}
 		
 	}
 
 
-	private static void añadirPacienteDb() {
+	private static void aniadirPacienteDb() {
 		try {
 			System.out.println("Indique el nombre del paciente:");
 			String nombre = reader.readLine();
@@ -451,7 +562,7 @@ public class Menu{
 	}
 
 
-	private static void añadirEnfermeroDb() {
+	private static void aniadirEnfermeroDb() {
 		try {
 			System.out.println("Indique el nombre del enfermero:");
 			String nombre = reader.readLine();
@@ -466,7 +577,7 @@ public class Menu{
 	}
 
 
-	private static void añadirDoctorDb() {
+	private static void aniadirDoctorDb() {
 		try {
 			System.out.println("Indique el nombre del Doctor:");
 			String nombre = reader.readLine();
@@ -482,7 +593,7 @@ public class Menu{
 			depar.setId(idDepartamento);
 			Doctores doctor = new Doctores(nombre,numColegiado, edad, sexo, depar);
 			dbman.addDoctor(doctor);
-			System.out.println("Doctor añadido con exito");
+			System.out.println("Doctor aniadido con exito");
 		} catch (IOException e) {
 			LOGGER.severe("Error al leer una linea\n" + e.getMessage());
 		}
@@ -504,7 +615,7 @@ public class Menu{
 			try {
 				respuesta = Integer.parseInt(reader.readLine());
 			} catch (IOException e) {
-				LOGGER.severe("Error al leer una l�nea\n" + e.getMessage());
+				LOGGER.severe("Error al leer una linea\n" + e.getMessage());
 			} catch (NumberFormatException e) {
 				
 			}

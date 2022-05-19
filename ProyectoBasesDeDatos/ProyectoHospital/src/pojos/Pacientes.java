@@ -27,8 +27,7 @@ public class Pacientes{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pacientes(int id, String nombre, int edad, boolean sexo, String motivo, Date fecha, Doctores doc,
-			Habitaciones hab) {
+	public Pacientes(int id, String nombre, int edad, boolean sexo, String motivo, Date fecha, Doctores doc, Habitaciones hab) {
 		super();
 		this.id=id;
 		this.nombre = nombre;

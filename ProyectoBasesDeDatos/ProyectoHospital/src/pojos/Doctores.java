@@ -7,6 +7,7 @@ public class Doctores{
 	private int edad;
 	private boolean sexo;
 	private Departamentos departamento;
+	private String rol;
 	
 	public Doctores(String nombre, int numColegiado, int edad, boolean sexo, Departamentos departamento) {
 		super();
@@ -19,7 +20,7 @@ public class Doctores{
 	public Doctores() {
 		
 	}
-	public Doctores(int id, String nombre, int numColegiado, int edad, boolean sexo, Departamentos departamento) {
+	public Doctores(int id, String nombre, int numColegiado, int edad, boolean sexo, Departamentos departamento, String rol) {
 		super();
 		this.id=id;
 		this.nombre=nombre;
@@ -27,6 +28,10 @@ public class Doctores{
 		this.edad=edad;
 		this.sexo=sexo;
 		this.departamento=departamento;
+		this.rol=rol;
+	}
+	public Doctores(int id2, String nombre2, String apellidos, String nombre3, int i) {
+		// TODO Auto-generated constructor stub
 	}
 	public int getId() {
 		return id;
@@ -69,7 +74,7 @@ public class Doctores{
 	@Override
 	public String toString() {
 		return "Doctores [id=" + id + ", nombre=" + nombre + ", numColegiado=" + numColegiado + ", edad=" + edad
-				+ ", sexo=" + sexo + ", departamento=" + departamento.getId() + "]";
+				+ ", sexo=" + sexo + ", departamento=" + departamento.getId() + ", rol=" + rol + "]";
 	}
 	
 }
