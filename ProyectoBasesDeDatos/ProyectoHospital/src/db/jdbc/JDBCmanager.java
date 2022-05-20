@@ -245,7 +245,7 @@ public class JDBCmanager implements DBmanager {
 		try (PreparedStatement prep = c.prepareStatement(sqlBuscarDoctoresNombre)) {
 			prep.setString(1, "%" + dato + "%");
 			ResultSet rs = prep.executeQuery();
-			while (rs.next()) {
+			/*while (rs.next()) {
 				int id = rs.getInt("Id");
 				String Nombre = rs.getString("Nombre");
 				int NumColegiado = rs.getInt("NumColegiado");
@@ -255,7 +255,7 @@ public class JDBCmanager implements DBmanager {
 				Departamentos depar = new Departamentos();
 				depar.setId(idDepartamento);
 				doctor.add(new Doctores(id, Nombre, NumColegiado, edad, sexo, depar));
-			}
+			}*/
 			rs.close();
 		} catch (SQLException e) {
 			LOGGER.warning("Error al buscar doctor por nombre\n" + e.toString());
@@ -270,12 +270,12 @@ public class JDBCmanager implements DBmanager {
 		try (PreparedStatement prep = c.prepareStatement(sqlBuscarEnfermerosNombre)) {
 			prep.setString(1, "%" + enfermero + "%");
 			ResultSet rs = prep.executeQuery();
-			while (rs.next()) {
+			/*while (rs.next()) {
 				int id = rs.getInt("Id");
 				String nombre = rs.getString("Nombre");
 				int edad = rs.getInt("Edad");
 				enf.add(new Enfermeros(id, nombre, edad));
-			}
+			}*/
 			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();

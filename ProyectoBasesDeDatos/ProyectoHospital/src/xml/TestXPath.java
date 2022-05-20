@@ -19,14 +19,14 @@ public class TestXPath {
     	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     	factory.setNamespaceAware(true);
     	DocumentBuilder builder = factory.newDocumentBuilder();
-    	Document doc = builder.parse("./xml/Empresa.xml"); //org.w3c.dom.Document
+    	Document doc = builder.parse("./xml/Hospital.xml"); //org.w3c.dom.Document
 
     	//Crear XPath
     	XPathFactory xpathfactory = XPathFactory.newInstance();
     	XPath xpath = xpathfactory.newXPath();
 
-    	// Obtener el t�tulo de los libros escritos despu�s de 2001
-    	String xPathtxt = "//empleado[sueldo>21000]";
+    	// Obtener el nombre de los doctores mayores de 24 años
+    	String xPathtxt = "//doctor[edad>24]";
     	XPathExpression expr = xpath.compile(xPathtxt); //javax.xml.xpath.XPathExpression
     	Object result = expr.evaluate(doc, XPathConstants.NODESET);
     	NodeList nodes = (NodeList) result; //org.w3c.dom.NodeList

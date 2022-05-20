@@ -15,8 +15,8 @@ import pojos.*;
 
 public class TestXML {
 	final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-	private static String[] empleadosNombres = {"Juan", "Alfonso", "Elisa", "Sergio", "Adolfo", "Germ�n", "Carlos", "Alejandro"};
-	private static String[] empleadosApellidos = {"Gonzalez", "Vico", "Garc�a", "Palomo", "Coello", "Colmenarejo", "Lopez"};
+	//private static String[] empleadosNombres = {"Juan", "Alfonso", "Elisa", "Sergio", "Adolfo", "German", "Carlos", "Alejandro"};
+	//private static String[] empleadosApellidos = {"Gonzalez", "Vico", "Garcia", "Palomo", "Coello", "Colmenarejo", "Lopez"};
 	private static int contador = 0;
 	public static void main(String[] args) throws JAXBException, IOException {
 		MyLogger.setupFromFile();
@@ -26,68 +26,68 @@ public class TestXML {
 		unMarshalling();
 	}
 	
-	private static Empresa generarEmpresa() {
-		Empresa emp = new Empresa();
-		ArrayList<Departamento> departamentos = new ArrayList<>();
+	/*private static Departamentos generarDepatamentos() {
+		Departamentos dep = new Departamentos();
+		ArrayList<Doctores> doc = new ArrayList<>();
 		for(int d = 0; d < 5; d++) {
-			Departamento dep = new Departamento();
-			dep.setNombre("Dep-" + d);
-			departamentos.add(dep);
-			emp.addDepartamento(dep);
+			Doctores doctores = new Doctores();
+			doc.setNombre("Doc-" + d);
+			doctores.add(doc);
+			dep.addDepartamento(doc);
 		}
 		
-		ArrayList<Empleado> empleados = new ArrayList<>();
+		ArrayList<Pacientes> pacientes = new ArrayList<>();
 		for(int i = 0; i < 20; i++) {
-			Empleado e = randomEmpleado();
-			empleados.add(e);
-			int randDep = (int)(Math.random() * 5);
-			Departamento dep = departamentos.get(randDep);
+			Pacientes p = randomPaciente();
+			pacientes.add(e);
+			int randDoc = (int)(Math.random() * 5);
+			Doctores doc = doctores.get(randDoc);
 			dep.addEmpleado(e);
 			e.setDepartamento(dep);
 		}
-		LOGGER.info("Se ha generado una empresa con " + departamentos.size() + 
-				" departamentos y " + empleados.size() + " empleados.");
-		return emp;
-	}
-	private static void marshalling(Empresa emp) throws JAXBException {
+		LOGGER.info("Se ha generado un departamento con " + doctores.size() + 
+				" doctores y " + pacientes.size() + " pacientes.");
+		return dep;
+	}*/
+	private static void marshalling(Departamentos dep) throws JAXBException {
 		// Creamos el JAXBContext
-		JAXBContext jaxbC = JAXBContext.newInstance(Empresa.class);
+		JAXBContext jaxbC = JAXBContext.newInstance(Departamentos.class);
 		// Creamos el JAXBMarshaller
 		Marshaller jaxbM = jaxbC.createMarshaller();
 		// Formateo bonito
 		jaxbM.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,Boolean.TRUE);
-		//jaxbM.setProperty("com.sun.xml.bind.xmlHeaders", "\n<!DOCTYPE empleado SYSTEM \"empleado.dtd\">");
+		//jaxbM.setProperty("com.sun.xml.bind.xmlHeaders", "\n<!DOCTYPE paciente SYSTEM \"paciente.dtd\">");
 		//jaxbM.setProperty("com.sun.xml.bind.xmlDeclaration", false);
 		// Escribiendo en un fichero
-		File XMLfile = new File("./xml/Empresa.xml");
-		jaxbM.marshal(emp, XMLfile);
+		File XMLfile = new File("./xml/Departamento.xml");
+		jaxbM.marshal(dep, XMLfile);
 		// Escribiendo por pantalla
-		jaxbM.marshal(emp, System.out);
+		jaxbM.marshal(dep, System.out);
 	}
 	
 	private static void unMarshalling() throws JAXBException {
 		// Creamos el JAXBContext
-		JAXBContext jaxbC = JAXBContext.newInstance(Empresa.class);
+		JAXBContext jaxbC = JAXBContext.newInstance(Departamentos.class);
 		// Creamos el JAXBMarshaller
 		Unmarshaller jaxbU = jaxbC.createUnmarshaller();
 		// Leyendo un fichero
 		File XMLfile = new File("./xml/Empresa.xml");
 		// Creando el objeto
-		Empresa emp = (Empresa) jaxbU.unmarshal(XMLfile);
+		Departamentos dep = (Departamentos) jaxbU.unmarshal(XMLfile);
 		// Escribiendo por pantalla el objeto
-		System.out.println(emp);
+		System.out.println(dep);
 	}
 	
-	private static Empleado randomEmpleado() {
-		String nombre = randomString(empleadosNombres);
-		String apellido = randomString(empleadosApellidos);
+	/*private static Pacientes randomPaciente() {
+		//String nombre = randomString(empleadosNombres);
+		//String apellido = randomString(empleadosApellidos);
 		int dia = (int) (Math.random() * 30);
 		double sueldo = (double) (18000 + Math.round(Math.random() * 5000));
-		return new Empleado(contador++, nombre, apellido, "1990-01-"+dia, sueldo);
+		//return new Empleado(contador++, nombre, apellido, "1990-01-"+dia, sueldo);
 	}
 	
 	private static String randomString(String[] array) {
 		int index = (int) (Math.random() * array.length);
 		return array[index];
-	}
+	}*/
 }

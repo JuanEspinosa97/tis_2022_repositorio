@@ -14,7 +14,7 @@ import org.xml.sax.SAXException;
 
 public class CheckDTD {
 	public static void main(String[] args) {
-		File xmlFile = new File("./xml/Empleado.xml");
+		File xmlFile = new File("./xml/Doctor.xml");
 		try {
 			DocumentBuilderFactory dBF = DocumentBuilderFactory.newInstance();
 			dBF.setValidating(true);

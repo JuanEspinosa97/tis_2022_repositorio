@@ -8,9 +8,9 @@ import javax.xml.transform.stream.StreamSource;
 
 public class TestXSLT {
     public static void main(String[] args) {
-    	String sourcePath = "./xml/xslt_ejemplo.xml";
-    	String xsltPath = "./xml/xslt_ejemplo1.xslt";
-    	String resultDir = "./xml/xslt_ejemplo1.html";
+    	String sourcePath = "./xml/xslt_departamento.xml";
+    	String xsltPath = "./xml/xslt_departamento1.xslt";
+    	String resultDir = "./xml/xslt_departamento1.html";
 
     	TransformerFactory tFactory = TransformerFactory.newInstance();
     	try {
