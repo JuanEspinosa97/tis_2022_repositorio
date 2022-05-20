@@ -20,15 +20,15 @@ public class JPAUsuariosManager implements UsuariosManager{
 	
 	@Override
 	public void connect() {
-		factory = Persistence.createEntityManagerFactory("restaurante-provider");
+		factory = Persistence.createEntityManagerFactory("hospital-provider");
 		em = factory.createEntityManager();
 		em.getTransaction().begin();
 		em.createNativeQuery("PRAGMA foreign_keys=ON").executeUpdate();
 		em.getTransaction().commit();
 		if (getRoles().size() == 0) {
-			addRol(new Rol("cliente"));
-			addRol(new Rol("empleado"));
-			addRol(new Rol("dueño"));
+			addRol(new Rol("paciente"));
+			addRol(new Rol("enfermero"));
+			addRol(new Rol("doctor"));
 		}
 	}
 
