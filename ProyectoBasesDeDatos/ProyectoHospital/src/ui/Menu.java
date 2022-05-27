@@ -1,13 +1,12 @@
 package ui;
 
-import db.interfaces.DBmanager;
-import db.interfaces.UsuariosManager;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 
+import db.jdbc.DBmanager;
 import db.jdbc.JDBCmanager;
 import jpa.JPAUsuariosManager;
+import jpa.UsuariosManager;
 import logging.MyLogger;
 import pojos.Departamentos;
 import pojos.Doctores;
@@ -29,6 +28,7 @@ import java.util.logging.Logger;
 import Generar.GenerarAleatorio;
 
 public class Menu {
+	
 	final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private static DBmanager dbman = new JDBCmanager();
 	private static UsuariosManager userman = new JPAUsuariosManager();

@@ -71,7 +71,7 @@ public class TestXML {
 		// Creamos el JAXBMarshaller
 		Unmarshaller jaxbU = jaxbC.createUnmarshaller();
 		// Leyendo un fichero
-		File XMLfile = new File("./xml/Empresa.xml");
+		File XMLfile = new File("./xml/Departamento.xml");
 		// Creando el objeto
 		Departamentos dep = (Departamentos) jaxbU.unmarshal(XMLfile);
 		// Escribiendo por pantalla el objeto

@@ -17,8 +17,6 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 import Generar.GenerarAleatorio;
-
-import db.interfaces.DBmanager;
 import pojos.Departamentos;
 import pojos.Doctores;
 import pojos.Enfermeros;

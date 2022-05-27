@@ -1,4 +1,4 @@
-package db.interfaces;
+package db.jdbc;
 
 import java.util.ArrayList;
 
