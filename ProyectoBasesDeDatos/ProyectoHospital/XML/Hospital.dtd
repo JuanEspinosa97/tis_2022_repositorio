@@ -1,0 +1,16 @@
+<! DOCTYPE Hospital [
+<! ELEMENT Hospital (departamentos+)>
+<! ELEMENT departamentos (departamento+)>
+<! ELEMENT departamento (id,nombre,numEmpleados,Doctores+)>
+<! ELEMENT id (#PCDATA)>
+<! ELEMENT nombre(#PCDATA)>
+<! ELEMENT numEmpleados(#PCDATA)>
+<! ELEMENT Doctores (Doctor*)>
+<! ELEMENT Doctor (nombre, numColegiado, edad, sexo)>
+<! ELEMENT nombre(#PCDATA)>
+<! ELEMENT numColegiado(#PCDATA)>
+<! ELEMENT edad(#PCDATA)>
+<! ELEMENT sexo(#PCDATA)>
+
+<!ATTLIST Doctor id CDATA #REQUIRED>
+]>

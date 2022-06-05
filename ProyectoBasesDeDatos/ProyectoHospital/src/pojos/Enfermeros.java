@@ -1,11 +1,12 @@
 package pojos;
 
+import java.util.ArrayList;
+
 public class Enfermeros {
 	private int id;
 	private String nombre;
 	private int edad;
-	private String rol;
-	
+	private ArrayList<Pacientes> pacientes= new ArrayList<>();
 	
 	public Enfermeros(String nombre, int edad) {
 		this.nombre=nombre;
@@ -16,11 +17,14 @@ public class Enfermeros {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Enfermeros(int id, String nombre, int edad, String rol) {
+	public Enfermeros(int id, String nombre, int edad) {
 		this.id=id;
 		this.nombre=nombre;
 		this.edad=edad;
-		this.rol=rol;
+	}
+	
+	public ArrayList<Pacientes> getPacientes(){
+		return pacientes;
 	}
 
 	public int getId() {
@@ -41,20 +45,12 @@ public class Enfermeros {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	public String getRol() {
-		return rol;
+	public void addPaciente(Pacientes p) {
+		pacientes.add(p);
 	}
-
-	public void setRol(String rol) {
-		this.rol = rol;
-	}
-
 	@Override
 	public String toString() {
-		return "Enfermeros [id=" + id + ", nombre=" + nombre + ", edad=" + edad + ", rol=" + rol + "]";
+		return "Enfermeros [id=" + id + ", nombre=" + nombre + ", edad=" + edad + ", Pacientes=" + pacientes.toString()+"]";
 	}
-
-	
 	
 }

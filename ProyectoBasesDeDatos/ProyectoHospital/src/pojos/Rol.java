@@ -10,7 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.TableGenerator;
+
 
 @Entity
 @Table(name = "Roles")

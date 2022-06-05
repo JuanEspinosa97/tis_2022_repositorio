@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS "Doctores" (
 	FOREIGN KEY("IdDep") REFERENCES "Departamentos"
 );
 CREATE TABLE IF NOT EXISTS "EnfermerosPacientes" (
-	"IdEnfermero"	INTEGER NOT NULL UNIQUE,
-	"IdPaciente"	INTEGER NOT NULL UNIQUE,
+	"IdEnfermero"	INTEGER NOT NULL,
+	"IdPaciente"	INTEGER NOT NULL,
 	PRIMARY KEY("IdEnfermero","IdPaciente")
 );
 CREATE TABLE IF NOT EXISTS "Departamentos" (

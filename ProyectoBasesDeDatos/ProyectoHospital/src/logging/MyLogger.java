@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.*;
+import java.util.logging.FileHandler;
 
 public class MyLogger {
     final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

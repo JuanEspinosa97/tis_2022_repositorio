@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Hospital>
+    <departamentos>
+        <departamento>
+            <id>1</id>
+            <nombre>Traumatologia</nombre>
+            <numEmpleados>3</numEmpleados>
+            <Doctores>
+                <Doctor id="3">
+                    <nombre>Ignacio</nombre>
+                    <numColegiado>282864493</numColegiado>
+                    <edad>58</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="13">
+                    <nombre>Alberto</nombre>
+                    <numColegiado>282883829</numColegiado>
+                    <edad>47</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="40">
+                    <nombre>Monica</nombre>
+                    <numColegiado>282818100</numColegiado>
+                    <edad>30</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+            </Doctores>
+        </departamento>
+        <departamento>
+            <id>2</id>
+            <nombre>Oncologia</nombre>
+            <numEmpleados>4</numEmpleados>
+            <Doctores>
+                <Doctor id="5">
+                    <nombre>Eduardo</nombre>
+                    <numColegiado>282827447</numColegiado>
+                    <edad>62</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="29">
+                    <nombre>Teresa</nombre>
+                    <numColegiado>282826783</numColegiado>
+                    <edad>46</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="31">
+                    <nombre>Francisco</nombre>
+                    <numColegiado>282895244</numColegiado>
+                    <edad>58</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="37">
+                    <nombre>Ignacio</nombre>
+                    <numColegiado>282841960</numColegiado>
+                    <edad>27</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+            </Doctores>
+        </departamento>
+        <departamento>
+            <id>3</id>
+            <nombre>Neurologia</nombre>
+            <numEmpleados>4</numEmpleados>
+            <Doctores>
+                <Doctor id="17">
+                    <nombre>Pilar</nombre>
+                    <numColegiado>282891750</numColegiado>
+                    <edad>34</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="21">
+                    <nombre>Luis</nombre>
+                    <numColegiado>282824578</numColegiado>
+                    <edad>44</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="28">
+                    <nombre>Javier</nombre>
+                    <numColegiado>282822092</numColegiado>
+                    <edad>36</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="35">
+                    <nombre>Eduardo</nombre>
+                    <numColegiado>282869737</numColegiado>
+                    <edad>47</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+            </Doctores>
+        </departamento>
+        <departamento>
+            <id>4</id>
+            <nombre>Cirugia</nombre>
+            <numEmpleados>8</numEmpleados>
+            <Doctores>
+                <Doctor id="2">
+                    <nombre>Sofia</nombre>
+                    <numColegiado>282887253</numColegiado>
+                    <edad>37</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="6">
+                    <nombre>Sofia</nombre>
+                    <numColegiado>282865219</numColegiado>
+                    <edad>64</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="7">
+                    <nombre>Monica</nombre>
+                    <numColegiado>282859535</numColegiado>
+                    <edad>62</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="10">
+                    <nombre>Monica</nombre>
+                    <numColegiado>282879497</numColegiado>
+                    <edad>61</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="14">
+                    <nombre>Maria</nombre>
+                    <numColegiado>282893906</numColegiado>
+                    <edad>25</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="25">
+                    <nombre>Monica</nombre>
+                    <numColegiado>282891361</numColegiado>
+                    <edad>61</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="32">
+                    <nombre>Manuel</nombre>
+                    <numColegiado>282887891</numColegiado>
+                    <edad>36</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="33">
+                    <nombre>Carla</nombre>
+                    <numColegiado>282878874</numColegiado>
+                    <edad>31</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+            </Doctores>
+        </departamento>
+        <departamento>
+            <id>5</id>
+            <nombre>Ginecologia</nombre>
+            <numEmpleados>3</numEmpleados>
+            <Doctores>
+                <Doctor id="12">
+                    <nombre>Manuel</nombre>
+                    <numColegiado>282801058</numColegiado>
+                    <edad>51</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="22">
+                    <nombre>Alberto</nombre>
+                    <numColegiado>282812657</numColegiado>
+                    <edad>25</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="23">
+                    <nombre>Carla</nombre>
+                    <numColegiado>282898366</numColegiado>
+                    <edad>37</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+            </Doctores>
+        </departamento>
+        <departamento>
+            <id>6</id>
+            <nombre>Urgencias</nombre>
+            <numEmpleados>7</numEmpleados>
+            <Doctores>
+                <Doctor id="8">
+                    <nombre>Ignacio</nombre>
+                    <numColegiado>282813889</numColegiado>
+                    <edad>64</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="9">
+                    <nombre>Monica</nombre>
+                    <numColegiado>282852278</numColegiado>
+                    <edad>41</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="11">
+                    <nombre>Eduardo</nombre>
+                    <numColegiado>282857880</numColegiado>
+                    <edad>27</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="16">
+                    <nombre>Jaime</nombre>
+                    <numColegiado>282842219</numColegiado>
+                    <edad>57</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="19">
+                    <nombre>Carlos</nombre>
+                    <numColegiado>282847547</numColegiado>
+                    <edad>31</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="20">
+                    <nombre>Alvaro</nombre>
+                    <numColegiado>282870976</numColegiado>
+                    <edad>62</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="38">
+                    <nombre>Jose</nombre>
+                    <numColegiado>282817857</numColegiado>
+                    <edad>43</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+            </Doctores>
+        </departamento>
+        <departamento>
+            <id>7</id>
+            <nombre>Cardiologia</nombre>
+            <numEmpleados>4</numEmpleados>
+            <Doctores>
+                <Doctor id="4">
+                    <nombre>Maria</nombre>
+                    <numColegiado>282889226</numColegiado>
+                    <edad>58</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="18">
+                    <nombre>Manuel</nombre>
+                    <numColegiado>282805990</numColegiado>
+                    <edad>33</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="24">
+                    <nombre>Juan</nombre>
+                    <numColegiado>282814120</numColegiado>
+                    <edad>63</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="39">
+                    <nombre>Carlos</nombre>
+                    <numColegiado>282838060</numColegiado>
+                    <edad>29</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+            </Doctores>
+        </departamento>
+        <departamento>
+            <id>8</id>
+            <nombre>Pediatria</nombre>
+            <numEmpleados>3</numEmpleados>
+            <Doctores>
+                <Doctor id="15">
+                    <nombre>Sonia</nombre>
+                    <numColegiado>282806072</numColegiado>
+                    <edad>50</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="27">
+                    <nombre>Paula</nombre>
+                    <numColegiado>282884007</numColegiado>
+                    <edad>61</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+                <Doctor id="30">
+                    <nombre>Pablo</nombre>
+                    <numColegiado>282861425</numColegiado>
+                    <edad>26</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+            </Doctores>
+        </departamento>
+        <departamento>
+            <id>9</id>
+            <nombre>Hematologia</nombre>
+            <numEmpleados>1</numEmpleados>
+            <Doctores>
+                <Doctor id="1">
+                    <nombre>Eduardo</nombre>
+                    <numColegiado>282897770</numColegiado>
+                    <edad>39</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+            </Doctores>
+        </departamento>
+        <departamento>
+            <id>10</id>
+            <nombre>Maternidad</nombre>
+            <numEmpleados>2</numEmpleados>
+            <Doctores>
+                <Doctor id="26">
+                    <nombre>Alvaro</nombre>
+                    <numColegiado>282860686</numColegiado>
+                    <edad>60</edad>
+                    <sexo>true</sexo>
+                </Doctor>
+                <Doctor id="34">
+                    <nombre>Jose</nombre>
+                    <numColegiado>282823245</numColegiado>
+                    <edad>64</edad>
+                    <sexo>false</sexo>
+                </Doctor>
+            </Doctores>
+        </departamento>
+    </departamentos>
+</Hospital>

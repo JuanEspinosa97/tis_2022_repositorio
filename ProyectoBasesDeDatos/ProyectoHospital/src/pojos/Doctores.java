@@ -1,13 +1,36 @@
 package pojos;
 
-public class Doctores{
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
+import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlAccessType;
+
+
+@XmlRootElement(name= "Doctor")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {"nombre", "numColegiado", "edad", "sexo"})
+public class Doctores implements Serializable{
+	private static final long serialVersionUID = 6633526622689289021L;
+	
+	@XmlAttribute
 	private int id;
+	@XmlElement
 	private String nombre;
+	@XmlElement
 	private int numColegiado;
+	@XmlElement
 	private int edad;
+	@XmlElement
 	private boolean sexo;
+	
+	@XmlTransient
 	private Departamentos departamento;
-	private String rol;
 	
 	public Doctores(String nombre, int numColegiado, int edad, boolean sexo, Departamentos departamento) {
 		super();
@@ -18,9 +41,9 @@ public class Doctores{
 		this.departamento=departamento;
 	}
 	public Doctores() {
-		
+		super();
 	}
-	public Doctores(int id, String nombre, int numColegiado, int edad, boolean sexo, Departamentos departamento, String rol) {
+	public Doctores(int id, String nombre, int numColegiado, int edad, boolean sexo, Departamentos departamento) {
 		super();
 		this.id=id;
 		this.nombre=nombre;
@@ -28,10 +51,6 @@ public class Doctores{
 		this.edad=edad;
 		this.sexo=sexo;
 		this.departamento=departamento;
-		this.rol=rol;
-	}
-	public Doctores(int id2, String nombre2, String apellidos, String nombre3, int i) {
-		// TODO Auto-generated constructor stub
 	}
 	public int getId() {
 		return id;
@@ -71,10 +90,24 @@ public class Doctores{
 	public void setDepartamento(Departamentos departamento) {
 		this.departamento = departamento;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Doctores other = (Doctores) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
 	@Override
 	public String toString() {
 		return "Doctores [id=" + id + ", nombre=" + nombre + ", numColegiado=" + numColegiado + ", edad=" + edad
-				+ ", sexo=" + sexo + ", departamento=" + departamento.getId() + ", rol=" + rol + "]";
+				+ ", sexo=" + sexo + ", departamento=" + departamento.getId() + "]";
 	}
 	
 }

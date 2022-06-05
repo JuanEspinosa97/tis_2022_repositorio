@@ -2,6 +2,7 @@ package xml;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.logging.FileHandler;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
@@ -13,17 +14,17 @@ public class CustomErrorHandler implements ErrorHandler {
 	}
 	@Override
 	public void error(SAXParseException exception) throws SAXException {
-		Logger.getLogger(CheckDTD.class.getName()).log(Level.SEVERE, null, exception);
+	//	Logger.getLogger(CheckDTD.class.getName()).log(Level.SEVERE, null, exception);
 		errorProduced = Boolean.TRUE;
 	}
 	@Override
 	public void fatalError(SAXParseException exception) throws SAXException {
-		Logger.getLogger(CheckDTD.class.getName()).log(Level.SEVERE, null, exception);
+		//Logger.getLogger(CheckDTD.class.getName()).log(Level.SEVERE, null, exception);
 		errorProduced = Boolean.TRUE;
 	}
 	@Override
 	public void warning(SAXParseException exception) throws SAXException {
-		Logger.getLogger(CheckDTD.class.getName()).log(Level.SEVERE, null, exception);
+		//Logger.getLogger(CheckDTD.class.getName()).log(Level.SEVERE, null, exception);
 		errorProduced = Boolean.TRUE;
 	}
 

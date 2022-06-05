@@ -26,10 +26,4 @@
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="logging.MyLogger"/>
-    <fullyQualifiedTypeName name="db.jpa.JPAUsuariosManager"/>
-    <fullyQualifiedTypeName name="db.interfaces.UsuariosManager"/>
-    <fullyQualifiedTypeName name="java.security.MessageDigest"/>
-    <fullyQualifiedTypeName name="pojos.Rol"/>
-    <fullyQualifiedTypeName name="pojos.Usuario"/>
 </qualifiedTypeNameHistroy>

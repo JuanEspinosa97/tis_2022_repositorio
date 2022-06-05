@@ -26,7 +26,7 @@ public class GenerarAleatorio {
     	doctor.setNumColegiado(282800000+randomInt(99999));
     	doctor.setSexo(getRandomBoolean());
     	Departamentos depar = new Departamentos();
-    	depar.setId(randomInt(NumDepartamentos));
+    	depar.setId((randomInt(NumDepartamentos))+1);
     	doctor.setDepartamento(depar);
     	return doctor;
     }
@@ -49,7 +49,7 @@ public class GenerarAleatorio {
 
     	Departamentos departamento = new Departamentos();
     	departamento.setNombre(NOMBRESDEPAR[i]);
-    	departamento.setNumEmpleados(randomInt(100));
+    	departamento.setNumEmpleados(0);
 
 		return departamento;
     }

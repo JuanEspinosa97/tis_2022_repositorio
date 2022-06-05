@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="NewWizardAction">
+	</section>
 	<section name="ImportExportAction">
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="374"/>
+		<item key="DIALOG_Y_ORIGIN" value="22"/>
+	</section>
+	<section name="EditorSelectionDialog">
+		<item key="EditorSelectionDialog.STORE_ID_FILE_EXTENSION" value=".db"/>
+		<item key="EditorSelectionDialog.STORE_ID_INTERNAL_EXTERNAL" value="true"/>
+		<item key="EditorSelectionDialog.STORE_ID_DESCR" value="C:\Program Files\DB Browser for SQLite\DB Browser for SQLite.exe"/>
 	</section>
 </section>

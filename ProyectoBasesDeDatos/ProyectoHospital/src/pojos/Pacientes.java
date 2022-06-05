@@ -12,6 +12,7 @@ public class Pacientes{
 	private Doctores doctor;
 	private Habitaciones habitacion;
 	
+	
 	public Pacientes(String nombre,int edad ,boolean sexo, String motivoIngreso, Date fechaIngreso, Doctores doctor, Habitaciones habitacion) {
 		super();
 		this.nombre = nombre;
@@ -27,7 +28,8 @@ public class Pacientes{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pacientes(int id, String nombre, int edad, boolean sexo, String motivo, Date fecha, Doctores doc, Habitaciones hab) {
+	public Pacientes(int id, String nombre, int edad, boolean sexo, String motivo, Date fecha, Doctores doc,
+			Habitaciones hab) {
 		super();
 		this.id=id;
 		this.nombre = nombre;
@@ -93,12 +95,12 @@ public class Pacientes{
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Pacientes [id=" + id + ", nombre=" + nombre + ", edad=" + edad + ", sexo=" + sexo + ", motivoIngreso="
 				+ motivoIngreso + ", fechaIngreso=" + fechaIngreso + ", doctor=" + doctor.getId() + ", habitacion=" + habitacion.getId()
-				+ "]";
+				+"]";
 	}
 
 }
