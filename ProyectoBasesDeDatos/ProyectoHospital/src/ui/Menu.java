@@ -15,7 +15,7 @@ import pojos.Habitaciones;
 import pojos.Pacientes;
 import pojos.Rol;
 import pojos.Usuario;
-import xml.DTDhospital;
+
 import xml.testhospital;
 
 import java.io.InputStreamReader;

@@ -45,18 +45,11 @@ public class testhospital {
 		return hospital;
 	}
 	private static void marshalling(Hospital hospital) throws JAXBException {
-		// Creamos el JAXBContext
 		JAXBContext jaxbC = JAXBContext.newInstance(Hospital.class);
-		// Creamos el JAXBMarshaller
 		Marshaller jaxbM = jaxbC.createMarshaller();
-		// Formateo bonito
 		jaxbM.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,Boolean.TRUE);
-		//jaxbM.setProperty("com.sun.xml.bind.xmlHeaders", "\n<!DOCTYPE Hospital SYSTEM \"Hospital.dtd\">");
-		//jaxbM.setProperty("com.sun.xml.bind.xmlDeclaration", false);
-		// Escribiendo en un fichero
 		File XMLfile = new File("./XML/Hospital.xml");
 		jaxbM.marshal(hospital, XMLfile);
-		// Escribiendo por pantalla
 		jaxbM.marshal(hospital, System.out);
 	}
 	
