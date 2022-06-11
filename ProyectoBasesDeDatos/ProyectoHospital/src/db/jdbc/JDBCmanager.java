@@ -37,6 +37,7 @@ public class JDBCmanager implements DBmanager{
 	private static final int numeroDepartamentosIniciales=10;
 	private static final int numeroHabitacionesIniciales=100;
 	private static final String sqlAddDoctor = "INSERT INTO Doctores(Nombre,NumColegiado,Edad,Sexo,IdDep) VALUES(?,?,?,?,?);";
+	private static final String sqlAddDoctorConID = "INSERT INTO Doctores(Id,Nombre,NumColegiado,Edad,Sexo,IdDep) VALUES(?,?,?,?,?,?);";
 	private static final String sqlAddPaciente = "INSERT INTO Pacientes(Nombre,Edad,Sexo,MotivoIngreso,FechaIngreso,IdDoctor,IdHabitacion) VALUES (?,?,?,?,?,?,?);";
 	private static final String sqlAddEnfermero = "INSERT INTO Enfermeros(Nombre, Edad) VALUES (?,?);";
 	private static final String sqlAddDepartamento = "INSERT INTO Departamentos(Nombre, NumEmpleados) VALUES(?,?);";
@@ -69,10 +70,10 @@ public class JDBCmanager implements DBmanager{
 			c= DriverManager.getConnection("jdbc:sqlite:" + UBICACION_DB);
 			stmt = c.createStatement();
 			createTablas();
-			inicializarDoctores();
+		//	inicializarDoctores();
 			inicializarHabitaciones();
 			inicializarDepartamentos();
-			actualizarDoctoresDepartamentos();
+			//actualizarDoctoresDepartamentos();
 			inicializarPacientes();
 			inicializarEnfermeros();
 			} catch (ClassNotFoundException | SQLException e) {
@@ -358,6 +359,19 @@ private void addHabitacion(Habitaciones habitacion) {
 			prep.setInt(3, doctor.getEdad());
 			prep.setBoolean(4, doctor.isSexo());
 		    prep.setInt(5,doctor.getDepartamento().getId());
+		    prep.executeUpdate();
+		}catch (SQLException e) {
+			LOGGER.warning("Error al a�adir doctor\n"+ e.toString());
+		}
+	}
+	public void addDoctorConID (Doctores doctor) {
+		try (PreparedStatement prep = c.prepareStatement(sqlAddDoctorConID)){
+			prep.setInt(1, doctor.getId());
+			prep.setString(2,doctor.getNombre());
+			prep.setInt(3,doctor.getNumColegiado());
+			prep.setInt(4, doctor.getEdad());
+			prep.setBoolean(5, doctor.isSexo());
+		    prep.setInt(6,doctor.getDepartamento().getId());
 		    prep.executeUpdate();
 		}catch (SQLException e) {
 			LOGGER.warning("Error al a�adir doctor\n"+ e.toString());

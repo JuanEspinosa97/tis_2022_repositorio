@@ -40,7 +40,7 @@ public class Menu{
 	//private static final String []MENUPACIENTE= {};
 	private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-	private static final String[] MENUJEFE = {"Salir", "Introducir un elemento","Introducir Muchos elemento","Modificar Informacion","Borrar elementos","Asignar Enfermeros a Paciente","VIsualizar elementos","Crear XML hospital"};
+	private static final String[] MENUJEFE = {"Salir", "Introducir un elemento","Introducir Muchos elemento","Modificar Informacion","Borrar elementos","Asignar Enfermeros a Paciente","VIsualizar elementos","Crear XML hospital","Leer XML"};
 	private static final String[] ELEMENTO = {"Salir","Doctor","Enfermero","Paciente"};
 	private static final DateTimeFormatter formatterFecha =  DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 	private static final String[] MENU_INICIO ={"Salir del programa", "Registrarse", "Login"};
@@ -151,6 +151,9 @@ public class Menu{
 			case 7:{crearXMLHospital();
 				break;
 			}
+			case 8:{
+				leerXML();
+			}
 			}
 		}while(respuesta!=0);
 	}
@@ -158,6 +161,21 @@ public class Menu{
 	
 
 
+
+
+	private static void leerXML() {
+		try {
+			testhospital.leerhospitalxml();
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 
 
 	private static void crearXMLHospital() {

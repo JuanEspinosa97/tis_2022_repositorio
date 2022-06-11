@@ -13,6 +13,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\mº graciela\Documents\CEU\BaseDeDatos\Repositorio\tis_2022_repositorio\ProyectoBasesDeDatos\ProyectoHospital"/>
 			<item value="C:\Users\mº graciela\Documents\CEU\BaseDeDatos\Repositorio\tis_2022_repositorio\ProyectoBasesDeDatos"/>
 			<item value="C:\Users\mº graciela\Documents\CEU\BaseDeDatos\NachoProyecto\ProyectoHospitalNacho"/>
 			<item value="C:\Users\mº graciela\Documents\CEU\BaseDeDatos\NachoProyecto"/>

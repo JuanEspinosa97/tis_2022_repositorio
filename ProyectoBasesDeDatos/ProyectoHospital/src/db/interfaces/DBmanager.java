@@ -15,6 +15,7 @@ public interface DBmanager{
 	void addEnfermero(Enfermeros en);
 	void addPaciente(Pacientes p);
 	void addDoctor(Doctores d);
+	void addDoctorConID (Doctores doctor);
 	ArrayList<Doctores> buscarDoctorNombre(String s);
 	ArrayList<Doctores> buscarDoctores();
 	ArrayList<Doctores> buscarDoctoresDepartamento(int i);

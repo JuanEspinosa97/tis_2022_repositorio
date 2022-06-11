@@ -82,7 +82,9 @@ public class Departamentos implements Serializable{
 			doctores.add(e);
 	}
 	
- 
+	public ArrayList<Doctores> getDoctores() {
+		return doctores;
+	}
 
 	@Override
 	public String toString() {

@@ -24,7 +24,10 @@ public class testhospital {
 
 		Hospital Hospital = generarHospital();
 		marshalling(Hospital);
-		//unMarshalling();
+		
+	}
+	public static void leerhospitalxml() throws JAXBException, IOException {
+		unMarshalling();
 	}
 	
 	private static Hospital generarHospital() {
@@ -54,15 +57,19 @@ public class testhospital {
 	}
 	
 	private static void unMarshalling() throws JAXBException {
-		// Creamos el JAXBContext
 		JAXBContext jaxbC = JAXBContext.newInstance(Hospital.class);
-		// Creamos el JAXBMarshaller
 		Unmarshaller jaxbU = jaxbC.createUnmarshaller();
-		// Leyendo un fichero
 		File XMLfile = new File("./xml/Hospital.xml");
-		// Creando el objeto
 		Hospital hospital = (Hospital) jaxbU.unmarshal(XMLfile);
-		// Escribiendo por pantalla el objeto
+		ArrayList<Departamentos>departamentos=hospital.getDepartamentos();
+		for (int i=0;i<departamentos.size();i++) {
+			ArrayList<Doctores>doctores=departamentos.get(i).getDoctores();
+			for (int j=0;j<doctores.size();j++) {
+				doctores.get(j).setDepartamento(departamentos.get(i));
+				dbman.addDoctorConID(doctores.get(j));
+			}
+			dbman.actualizarDoctoresDepartamentos();
+		}
 		System.out.println(hospital);
 	}
 	
