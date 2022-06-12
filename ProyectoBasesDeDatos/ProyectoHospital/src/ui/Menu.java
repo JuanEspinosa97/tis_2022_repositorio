@@ -34,9 +34,8 @@ import Generar.GenerarAleatorio;
 public class Menu{
 	private static DBmanager dbman = new JDBCmanager();
 	private static UsuariosInterface userman = new JPAmanager();
-//	private static final String[] Identificacion = {"Salir", "Jefe", "Doctor", "Enfermero", "Paciente"};
 	private static final String []MENUDOCTOR= {"Salir","Ver Pacientes","Modificar Historial Pacientes","Ver Enfermeros"};
-//	private static final String []MENUENFERMERO= {};
+	private static final String []MENUENFERMERO= {"Salir","Ver Pacientes","Modificar Historial Pacientes"};
 	//private static final String []MENUPACIENTE= {};
 	private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -584,8 +583,19 @@ public class Menu{
 
 
 	private static void mostarMenuEnfermero() {
-		// TODO Auto-generated method stub
+		System.out.println("Bienvenido al menu de enfermeros.");
+		int respuesta=-1;
+		do {
+			respuesta=mostrarOpciones(MENUENFERMERO);
+			switch(respuesta) {
+			case 1:{verPacienteDb();
+					break;}
+			case 2:{modificarPacienteDb();
+					break;}
+			}
+		}while(respuesta!=0);
 	}
+		
 
 
 	private static void mostrarMenuDoctor() {
