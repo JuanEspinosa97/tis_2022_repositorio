@@ -48,9 +48,10 @@ public class Enfermeros {
 	public void addPaciente(Pacientes p) {
 		pacientes.add(p);
 	}
+	
 	@Override
 	public String toString() {
-		return "Enfermeros [id=" + id + ", nombre=" + nombre + ", edad=" + edad + ", Pacientes=" + pacientes.toString()+"]";
+		return "Enfermeros [id=" + id + ", nombre=" + nombre + ", edad=" + edad + "]";
 	}
 	
 }

@@ -841,7 +841,7 @@
         <departamento>
             <id>10</id>
             <nombre>Maternidad</nombre>
-            <numEmpleados>9</numEmpleados>
+            <numEmpleados>8</numEmpleados>
             <Doctores>
                 <Doctor id="26">
                     <nombre>Alvaro</nombre>
@@ -889,12 +889,6 @@
                     <nombre>Jaime</nombre>
                     <numColegiado>282846898</numColegiado>
                     <edad>36</edad>
-                    <sexo>true</sexo>
-                </Doctor>
-                <Doctor id="134">
-                    <nombre>Sofia</nombre>
-                    <numColegiado>282871616</numColegiado>
-                    <edad>63</edad>
                     <sexo>true</sexo>
                 </Doctor>
             </Doctores>

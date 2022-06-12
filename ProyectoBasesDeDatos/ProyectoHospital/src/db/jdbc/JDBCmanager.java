@@ -70,10 +70,10 @@ public class JDBCmanager implements DBmanager{
 			c= DriverManager.getConnection("jdbc:sqlite:" + UBICACION_DB);
 			stmt = c.createStatement();
 			createTablas();
-		//	inicializarDoctores();
+			inicializarDoctores();
 			inicializarHabitaciones();
 			inicializarDepartamentos();
-			//actualizarDoctoresDepartamentos();
+			actualizarDoctoresDepartamentos();
 			inicializarPacientes();
 			inicializarEnfermeros();
 			} catch (ClassNotFoundException | SQLException e) {
